@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODO AI Innovations - Admission Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="form-header">
+                <img src="https://codoacademy.com/uploads/system/0623b9b92a325936b0a00502d95c22e6.png"
+                    alt="CODO AI Innovations" class="logo">
+                <div class="date-fields">
+                    Date: <span id="currentDate"></span><br>
+                    App id: <span id="applicationId"></span>
+                    <input type="hidden" name="applicationId" id="applicationIdInput">
+                </div>
+            </div>
+
+            <h1 class="form-title">Web Design & Development<br>Admission Form</h1>
+
+            <form id="admissionForm" method="POST" action="process.php">
+                <!-- <div class="date-fields">
+                    Date: <span id="currentDate"></span><br>
+                    App id: <span id="applicationId"></span>
+                    <input type="hidden" name="applicationId" id="applicationIdInput">
+                </div> -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label for="applicantName" class="form-label">Applicant Name</label>
+                        <input type="text" class="form-control" id="applicantName" name="applicantName" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="batchNo" class="form-label">Batch no.</label>
+                        <input type="text" class="form-control" id="batchNo" name="batchNo">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="dateOfJoining" class="form-label">Date of Joining</label>
+                        <input type="date" class="form-control" id="dateOfJoining" name="dateOfJoining">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-8">
+                        <label for="dob" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="dob" name="dob" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label">Gender</label>
+                        <div class="d-flex gap-4">
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="male" name="gender" value="male"
+                                    required>
+                                <label class="form-check-label" for="male">Male</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" id="female" name="gender" value="female">
+                                <label class="form-check-label" for="female">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="phone" class="form-label">Phone No.</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label for="education" class="form-label">Education</label>
+                        <input type="text" class="form-control" id="education" name="education">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="fatherName" class="form-label">Father's Name</label>
+                        <input type="text" class="form-control" id="fatherName" name="fatherName">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="fatherOccupation" class="form-label">Father's Occupation</label>
+                        <input type="text" class="form-control" id="fatherOccupation" name="fatherOccupation">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="motherName" class="form-label">Mother's Name</label>
+                        <input type="text" class="form-control" id="motherName" name="motherName">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="guardianPhone" class="form-label">Guardian's Phone No.</label>
+                        <input type="tel" class="form-control" id="guardianPhone" name="guardianPhone">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <label class="form-label">Technical Background</label>
+                        <div class="d-flex align-items-center">
+                            <label class="me-4">Do you have any prior experience with Web Development?</label>
+                            <div class="d-flex gap-4">
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="techYes" name="technicalBackground"
+                                        value="yes">
+                                    <label class="form-check-label" for="techYes">Yes</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" id="techNo" name="technicalBackground"
+                                        value="no">
+                                    <label class="form-check-label" for="techNo">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Declaration text -->
+                <div class="declaration-text">
+                    I, <span class="declaration-name">_______________________</span>, confirm that the information in
+                    this form is
+                    accurate to my knowledge. Providing false information may lead to rejection. I acknowledge that
+                    joining this mentorship program is a privilege and commit to following its rules. I understand that
+                    my behavior is subject to review, and any violation may result in termination. I give permission to
+                    verify the information for admission purposes.
+                </div>
+
+                <div class="signature-section">
+                    <div class="signature-container">
+                        <label class="signature-label">
+                            <i class="fas fa-pen-fancy"></i> Signature of the Candidate
+                            <span class="required-badge">Required</span>
+                        </label>
+                        
+                        <div class="signature-pad-wrapper">
+                            <canvas id="signaturePad" width="400" height="150"></canvas>
+                            
+                            <div class="signature-guide">
+                                <div class="guide-line"></div>
+                                <span class="guide-text">Sign here</span>
+                            </div>
+
+                            <!-- Enhanced toolbar -->
+                            <div class="signature-pad-controls">
+                                <div class="control-group">
+                                    <button type="button" class="btn btn-tool" id="undoSignature" title="Undo">
+                                        <i class="fas fa-undo"></i>
+                                        <span class="tooltip">Undo</span>
+                                    </button>
+                                    <button type="button" class="btn btn-tool" id="clearSignature" title="Clear">
+                                        <i class="fas fa-eraser"></i>
+                                        <span class="tooltip">Clear</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Enhanced pen options panel -->
+                        <div class="signature-options" id="penOptions" style="display: none;">
+                            <div class="options-header">
+                                <div class="header-title">
+                                    <i class="fas fa-sliders-h"></i>
+                                    <span class="title-text">Signature Options</span>
+                                    <!-- Mobile-only close text -->
+                                    <span class="close-text d-sm-none">Done</span>
+                                </div>
+                                <button type="button" class="btn-close-fancy" id="closePenOptions" aria-label="Close options">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+
+                            <div class="options-content">
+                                <!-- Pen Size Section -->
+                                <div class="option-section">
+                                    <div class="section-header">
+                                        <i class="fas fa-pen-nib"></i>
+                                        <label for="penSize">Pen Size</label>
+                                        <span class="size-value" aria-live="polite">2.5px</span>
+                                    </div>
+                                    <div class="slider-container">
+                                        <div class="size-preview-line" aria-hidden="true"></div>
+                                        <input type="range" 
+                                               id="penSize" 
+                                               min="1" 
+                                               max="5" 
+                                               step="0.5" 
+                                               value="2.5"
+                                               class="fancy-slider"
+                                               aria-label="Adjust pen size">
+                                        <div class="size-previews" aria-hidden="true">
+                                            <span class="preview-dot small"></span>
+                                            <span class="preview-dot medium"></span>
+                                            <span class="preview-dot large"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pen Color Section -->
+                                <div class="option-section">
+                                    <div class="section-header">
+                                        <i class="fas fa-palette"></i>
+                                        <label>Pen Color</label>
+                                        <span class="selected-color" aria-live="polite">Default</span>
+                                    </div>
+                                    <div class="color-grid" role="radiogroup" aria-label="Select pen color">
+                                        <div class="color-option active" 
+                                             data-color="#000000" 
+                                             role="radio" 
+                                             aria-checked="true" 
+                                             tabindex="0"
+                                             style="background: #000000">
+                                            <i class="fas fa-check" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="color-option" data-color="#0000FF" style="background: #0000FF">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="color-option" data-color="#1A3C6E" style="background: #1A3C6E">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <button type="button" class="custom-color-btn" id="customColor">
+                                            <i class="fas fa-plus"></i>
+                                            <span>Custom</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Signature Stats -->
+                                <div class="signature-stats" aria-live="polite">
+                                    <div class="stat-item">
+                                        <i class="fas fa-pencil-alt" aria-hidden="true"></i>
+                                        <span>Strokes: <strong id="strokeCount">0</strong></span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <i class="fas fa-clock" aria-hidden="true"></i>
+                                        <span>Time: <strong id="signTime">0:00</strong></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="signature" id="signatureData">
+                        
+                        <!-- Enhanced status display -->
+                        <div class="signature-status">
+                            <div class="status-icon">
+                                <i class="fas fa-pen-nib"></i>
+                            </div>
+                            <span id="signatureStatus" class="text-muted">No signature added</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add this after the signature-section div -->
+                <div class="submit-section">
+                    <button type="submit" class="btn btn-primary submit-btn" id="submitApplication">
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                </div>
+            </form>
+
+            <!-- Thank you popup modal -->
+            <div class="modal fade" id="thankYouModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                <i class="fas fa-check-circle text-success"></i> Application Submitted Successfully
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="success-message text-center">
+                                <div class="success-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h4>Thank You!</h4>
+                                <p>Your application has been submitted successfully.</p>
+                                <p class="app-id">Application ID: <strong id="submittedAppId"></strong></p>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="printApplication">
+                                <i class="fas fa-print"></i> Print Application
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p>CODO AI Innovations</p>
+                <p>Paravath Arcade, 2nd Floor, opp. Budget</p>
+                <p>Hypermarket, Varangode, Malappuram, Kerala 676519</p>
+                <p>info@codoacademy.com | www.codoacademy.com</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.1.5/dist/signature_pad.umd.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Format today's date as DD/MM/YYYY
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+
+        // Set current date when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            const today = new Date();
+            document.getElementById('currentDate').textContent = formatDate(today);
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const canvas = document.getElementById('signaturePad');
+            const signaturePad = new SignaturePad(canvas, {
+                backgroundColor: 'rgb(255, 255, 255)',
+                penColor: 'rgb(0, 0, 0)',
+                velocityFilterWeight: 0.7,
+                minWidth: 0.5,
+                maxWidth: 2.5,
+                throttle: 16,
+            });
+
+            // Handle window resize
+            function resizeCanvas() {
+                const ratio = Math.max(window.devicePixelRatio || 1, 1);
+                canvas.width = canvas.offsetWidth * ratio;
+                canvas.height = canvas.offsetHeight * ratio;
+                canvas.getContext("2d").scale(ratio, ratio);
+                signaturePad.clear(); // Otherwise isEmpty() might return incorrect value
+            }
+
+            window.addEventListener("resize", resizeCanvas);
+            resizeCanvas();
+
+            // Clear signature
+            document.getElementById('clearSignature').addEventListener('click', function () {
+                signaturePad.clear();
+                document.getElementById('signatureData').value = '';
+            });
+
+            // Undo last stroke
+            document.getElementById('undoSignature').addEventListener('click', function () {
+                const data = signaturePad.toData();
+                if (data) {
+                    data.pop(); // remove the last dot or line
+                    signaturePad.fromData(data);
+                    updateSignatureInput();
+                }
+            });
+
+            // Update hidden input with signature data
+            function updateSignatureInput() {
+                if (!signaturePad.isEmpty()) {
+                    const signatureData = signaturePad.toDataURL();
+                    document.getElementById('signatureData').value = signatureData;
+                } else {
+                    document.getElementById('signatureData').value = '';
+                }
+            }
+
+            // Update signature data when signing
+            signaturePad.addEventListener("endStroke", () => {
+                updateSignatureInput();
+            });
+
+            // Form submission validation
+            document.getElementById('admissionForm').addEventListener('submit', function (e) {
+                if (signaturePad.isEmpty()) {
+                    e.preventDefault();
+                    alert('Please provide your signature before submitting the form.');
+                    return false;
+                }
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const canvas = document.getElementById('signaturePad');
+            const signaturePad = new SignaturePad(canvas, {
+                backgroundColor: 'rgb(255, 255, 255)',
+                penColor: 'rgb(26, 60, 110)', // CODO blue
+                velocityFilterWeight: 0.7,
+                minWidth: 0.5,
+                maxWidth: 2.5,
+                throttle: 16,
+            });
+
+            let drawingStarted = false;
+            const statusElement = document.getElementById('signatureStatus');
+            const penOptions = document.getElementById('penOptions');
+
+            // Enhanced resize handling
+            function resizeCanvas() {
+                const ratio = Math.max(window.devicePixelRatio || 1, 1);
+                const context = canvas.getContext("2d");
+
+                // Store current signature data
+                const data = signaturePad.toData();
+
+                // Resize canvas
+                canvas.width = canvas.offsetWidth * ratio;
+                canvas.height = canvas.offsetHeight * ratio;
+                context.scale(ratio, ratio);
+
+                // Restore signature if it existed
+                if (data) {
+                    signaturePad.fromData(data);
+                }
+            }
+
+            // Debounced resize handler
+            let resizeTimeout;
+            window.addEventListener("resize", function () {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(resizeCanvas, 250);
+            });
+            resizeCanvas();
+
+            // Pen size handling
+            document.getElementById('penSize').addEventListener('input', function (e) {
+                const size = parseFloat(e.target.value);
+                signaturePad.minWidth = size * 0.5;
+                signaturePad.maxWidth = size * 2;
+            });
+
+            // Color handling
+            document.querySelectorAll('.color-option').forEach(color => {
+                color.addEventListener('click', function () {
+                    document.querySelectorAll('.color-option').forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    signaturePad.penColor = this.dataset.color;
+                });
+            });
+
+            // Toggle pen options
+            document.getElementById('changePenSize').addEventListener('click', function () {
+                penOptions.style.display = penOptions.style.display === 'none' ? 'block' : 'none';
+            });
+
+            // Clear signature with animation
+            document.getElementById('clearSignature').addEventListener('click', function () {
+                this.classList.add('rotating');
+                signaturePad.clear();
+                document.getElementById('signatureData').value = '';
+                updateStatus('Signature cleared');
+                setTimeout(() => this.classList.remove('rotating'), 500);
+            });
+
+            // Undo with improved handling
+            document.getElementById('undoSignature').addEventListener('click', function () {
+                const data = signaturePad.toData();
+                if (data) {
+                    data.pop();
+                    signaturePad.fromData(data);
+                    updateSignatureInput();
+                    updateStatus('Last stroke removed');
+                }
+            });
+
+            // Status updates
+            function updateStatus(message) {
+                statusElement.textContent = message;
+                statusElement.style.animation = 'none';
+                statusElement.offsetHeight; // Trigger reflow
+                statusElement.style.animation = null;
+            }
+
+            // Signature event handlers
+            signaturePad.addEventListener("beginStroke", () => {
+                if (!drawingStarted) {
+                    drawingStarted = true;
+                    updateStatus('Signing...');
+                }
+            });
+
+            signaturePad.addEventListener("endStroke", () => {
+                updateSignatureInput();
+                updateStatus('Signature added');
+            });
+
+            // Update hidden input
+            function updateSignatureInput() {
+                if (!signaturePad.isEmpty()) {
+                    const signatureData = signaturePad.toDataURL('image/png');
+                    document.getElementById('signatureData').value = signatureData;
+                } else {
+                    document.getElementById('signatureData').value = '';
+                    updateStatus('No signature added');
+                }
+            }
+
+            // Form validation
+            document.getElementById('admissionForm').addEventListener('submit', function (e) {
+                if (signaturePad.isEmpty()) {
+                    e.preventDefault();
+                    updateStatus('Please add your signature before submitting');
+                    canvas.classList.add('shake');
+                    setTimeout(() => canvas.classList.remove('shake'), 650);
+                    return false;
+                }
+            });
+        });
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const today = new Date();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const year = String(today.getFullYear()).slice(-2);
+        const count = String(1).padStart(3, '0');
+        const appId = `CODO/${month}${year}/${count}`;
+        
+        document.getElementById('applicationId').textContent = appId;
+    });
+    </script>
+</body>
+
+</html>
