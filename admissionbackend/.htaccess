@@ -1,20 +1,23 @@
 # Enable CORS
-Header set Access-Control-Allow-Origin "*"
-Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
-Header set Access-Control-Allow-Headers "Content-Type"
+SetEnvIf Origin "^https?://(admission\.moajmalnk\.in)$" CORS_ORIGIN=$0
+Header set Access-Control-Allow-Origin "%{CORS_ORIGIN}e" env=CORS_ORIGIN
+Header set Access-Control-Allow-Credentials "true"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
 Header set Access-Control-Max-Age "3600"
 
 # Handle OPTIONS preflight requests
 RewriteEngine On
 RewriteCond %{REQUEST_METHOD} OPTIONS
-RewriteRule ^(.*)$ $1 [R=200,L]
+RewriteRule ^(.*)$ $1 [R=200,L,E=HTTP_ORIGIN:%{HTTP:ORIGIN}]
+Header set Access-Control-Allow-Origin "%{HTTP_ORIGIN}e" env=HTTP_ORIGIN
 
 # Security headers
 Header set X-Content-Type-Options "nosniff"
 Header set X-Frame-Options "SAMEORIGIN"
 Header set X-XSS-Protection "1; mode=block"
 Header set Referrer-Policy "strict-origin-when-cross-origin"
-Header set Content-Security-Policy "default-src 'self' https://admission.moajmalnk.in; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline' https:;"
+Header set Content-Security-Policy "default-src 'self' https://admission.moajmalnk.in https://admissionbackend.moajmalnk.in; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline' https:; connect-src 'self' https://admission.moajmalnk.in https://admissionbackend.moajmalnk.in;"
 
 # Disable directory browsing
 Options -Indexes
@@ -42,9 +45,13 @@ php_value max_input_time 300
     Deny from all
 </FilesMatch>
 
-# Allow API endpoints
-<FilesMatch "^(generate_app_id\.php|api/|process\.php)$">
+# Allow API endpoints and set proper headers
+<FilesMatch "\.(php)$">
     Order allow,deny
     Allow from all
-    Header set Content-Type "application/json"
+    Header always set Access-Control-Allow-Origin "%{CORS_ORIGIN}e" env=CORS_ORIGIN
+    Header always set Access-Control-Allow-Credentials "true"
+    Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+    Header always set Content-Type "application/json" env=IS_JSON
 </FilesMatch> 

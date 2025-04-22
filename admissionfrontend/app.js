@@ -89,8 +89,9 @@ async function getLastApplicationId() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': localStorage.getItem('token') || ''
+                'Authorization': `Bearer ${localStorage.getItem('authToken') || ''}`
             },
+            credentials: 'include',
             mode: 'cors'
         });
         
@@ -151,8 +152,9 @@ async function generateApplicationId() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${localStorage.getItem('authToken')}` || ''
+                'Authorization': `Bearer ${localStorage.getItem('authToken') || ''}`
             },
+            credentials: 'include',
             mode: 'cors'
         });
 
@@ -167,8 +169,9 @@ async function generateApplicationId() {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('authToken')}` || ''
+                    'Authorization': `Bearer ${localStorage.getItem('authToken') || ''}`
                 },
+                credentials: 'include',
                 mode: 'cors'
             });
             
