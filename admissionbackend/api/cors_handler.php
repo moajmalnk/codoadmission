@@ -1,4 +1,7 @@
 <?php
+// Prevent any output before headers
+ob_start();
+
 // Get the origin
 $origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
 
@@ -16,7 +19,19 @@ header('Content-Type: application/json; charset=UTF-8');
 
 // Handle preflight requests
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    // Clear any output buffers
+    while (ob_get_level()) {
+        ob_end_clean();
+    }
     http_response_code(200);
     exit();
 }
+
+// Clear any output buffers before returning
+while (ob_get_level()) {
+    ob_end_clean();
+}
+
+// Start fresh output buffer
+ob_start();
 ?> 
