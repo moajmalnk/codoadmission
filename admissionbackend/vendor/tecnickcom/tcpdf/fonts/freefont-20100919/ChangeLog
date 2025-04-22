@@ -5416,7 +5416,7 @@ $Id: ChangeLog,v 1.257 2010/09/19 13:15:07 Stevan_White Exp $
 	symbol) in order to conform to Unicode standard. Simplified glyph
 	shapes in ASCII range. Started adding "above" and "below" anchors.
 	
-2005-11-05  Primoz Peterlin  <peterlin@localhost.localdomain>
+2005-11-05  Primoz Peterlin  <peterlin@.localdomain>
 
 	* sfd/FreeSerif.sfd - accented letters in Latin Extended-A
 	replaced by references wherever possible.

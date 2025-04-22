@@ -18,7 +18,7 @@ require_once 'config.php';
 
 // For GET requests, redirect to the form page
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    header('Location: http://localhost/codoadmission/admissionfrontend/');
+    header('Location: https://admission.moajmalnk.in/');
     exit();
 }
 

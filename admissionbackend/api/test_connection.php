@@ -17,8 +17,8 @@ if (extension_loaded('pdo')) {
 echo "\nTesting direct MySQL connection...\n";
 try {
     $host = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "u262074081_admission";
+    $password = "4muogEVkB/";
     
     // Try connecting without database first
     $pdo = new PDO("mysql:host=$host", $username, $password);

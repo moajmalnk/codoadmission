@@ -1,32 +1,49 @@
-# Enable CORS with dynamic origin
-SetEnvIf Origin "^http(s)?://(localhost|127\.0\.0\.1)(:\d+)?(/.*)?$" CORS_ORIGIN=$0
-Header always set Access-Control-Allow-Origin %{CORS_ORIGIN}e env=CORS_ORIGIN
-Header always set Access-Control-Allow-Credentials "true"
-Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
-Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
-Header always set Access-Control-Max-Age "3600"
+# Enable CORS
+Header set Access-Control-Allow-Origin "https://admission.moajmalnk.in"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+Header set Access-Control-Allow-Credentials "true"
 
-# Handle OPTIONS preflight requests
-RewriteEngine On
-RewriteCond %{REQUEST_METHOD} OPTIONS
-RewriteRule ^(.*)$ $1 [R=200,L]
+# Security headers
+Header set X-Content-Type-Options "nosniff"
+Header set X-Frame-Options "SAMEORIGIN"
+Header set X-XSS-Protection "1; mode=block"
+Header set Referrer-Policy "strict-origin-when-cross-origin"
+Header set Content-Security-Policy "default-src 'self' https://admission.moajmalnk.in; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline' https:;"
 
-# Set default charset
-AddDefaultCharset UTF-8
-
-# Disable directory listing
-Options -Indexes
-
-# Enable error reporting (remove in production)
-php_flag display_errors off
-php_value error_reporting E_ALL
-
-# Set content type for JSON responses
-SetEnvIf Request_URI "\.php$" IS_PHP
-Header set Content-Type "application/json" env=IS_PHP
-
-# Deny access to sensitive files
-<FilesMatch "^(\.env|\.git|composer\.(json|lock)|\.htaccess)$">
+# Protect files and directories
+<FilesMatch "^\.">
     Order allow,deny
     Deny from all
+</FilesMatch>
+
+# Disable directory browsing
+Options -Indexes
+
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Handle errors
+ErrorDocument 404 /error.php
+ErrorDocument 403 /error.php
+ErrorDocument 500 /error.php
+
+# PHP settings
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Prevent access to sensitive files
+<FilesMatch "\.(env|config\.php|composer\.(json|lock))$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Allow API endpoints
+<FilesMatch "^(api/|process\.php$)">
+    Order allow,deny
+    Allow from all
 </FilesMatch> 

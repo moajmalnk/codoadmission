@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         loginButton.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Signing in...';
 
         try {
-            const response = await fetch('http://localhost/codoadmission/admissionbackend/api/login.php', {
+            const response = await fetch('https://admissionbackend.moajmalnk.in/api/login.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

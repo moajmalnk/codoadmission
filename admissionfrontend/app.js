@@ -85,7 +85,7 @@ const BatchUtil = {
 // Function to get the last application ID from the database
 async function getLastApplicationId() {
     try {
-        const response = await fetch('http://localhost/codoadmission/admissionbackend/get_last_id.php', {
+        const response = await fetch('https://admissionbackend.moajmalnk.in/get_last_id.php', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ async function generateApplicationId() {
         let generatedId = `CODO/${month}${year}/${formattedNumber}`;
 
         // Verify if ID exists
-        const verifyResponse = await fetch(`http://localhost/codoadmission/admissionbackend/verify_id.php?id=${generatedId}`, {
+        const verifyResponse = await fetch(`https://admissionbackend.moajmalnk.in/verify_id.php?id=${generatedId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -163,7 +163,7 @@ async function generateApplicationId() {
             generatedId = `CODO/${month}${year}/${timestamp}`;
             
             // Verify again to be absolutely sure
-            const secondVerifyResponse = await fetch(`http://localhost/codoadmission/admissionbackend/verify_id.php?id=${generatedId}`, {
+            const secondVerifyResponse = await fetch(`https://admissionbackend.moajmalnk.in/verify_id.php?id=${generatedId}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -328,7 +328,7 @@ class FormHandler {
             submitButton.disabled = true;
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
             
-            const response = await fetch('http://localhost/codoadmission/admissionbackend/process.php', {
+            const response = await fetch('https://admissionbackend.moajmalnk.in/process.php', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -437,7 +437,7 @@ function downloadApplication(applicationId) {
         return;
     }
     
-    const pdfUrl = `http://localhost/codoadmission/admissionbackend/generate_pdf.php?application_id=${applicationId}`;
+    const pdfUrl = `https://admissionbackend.moajmalnk.in/generate_pdf.php?application_id=${applicationId}`;
     
     // Create a temporary link element
     const link = document.createElement('a');
@@ -603,7 +603,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 async function verifyApplicationId(id) {
     try {
-        const response = await fetch(`http://localhost/codoadmission/admissionbackend/verify_id.php?id=${id}`);
+        const response = await fetch(`https://admissionbackend.moajmalnk.in/verify_id.php?id=${id}`);
         const data = await response.json();
         return data.exists;
     } catch (error) {
@@ -611,3 +611,17 @@ async function verifyApplicationId(id) {
         return false;
     }
 }
+
+// API Configuration
+const API_CONFIG = {
+    BASE_URL: 'https://admissionbackend.moajmalnk.in',
+    ENDPOINTS: {
+        SUBMIT_APPLICATION: '/api/submit_application.php',
+        GET_APPLICATIONS: '/api/get_applications.php',
+        GET_APPLICATION: '/api/get_application.php',
+        UPDATE_APPLICATION: '/api/update_application.php',
+        DELETE_APPLICATION: '/api/delete_application.php',
+        LOGIN: '/api/login.php',
+        VERIFY_TOKEN: '/api/verify_token.php'
+    }
+};

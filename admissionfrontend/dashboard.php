@@ -471,7 +471,7 @@
                 </div>
             `;
 
-            fetch('http://localhost/codoadmission/admissionbackend/api/get_applications.php', {
+            fetch('https://admissionbackend.moajmalnk.in/api/get_applications.php', {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('authToken')}`
                 }
@@ -715,7 +715,7 @@
         }
 
         function performDelete(applicationId) {
-            fetch(`http://localhost/codoadmission/admissionbackend/api/delete_application.php?id=${applicationId}`, {
+            fetch(`https://admissionbackend.moajmalnk.in/api/delete_application.php?id=${applicationId}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
@@ -809,7 +809,7 @@
                 return;
             }
 
-            const pdfUrl = `http://localhost/codoadmission/admissionbackend/generate_pdf.php?application_id=${applicationId}`;
+            const pdfUrl = `https://admissionbackend.moajmalnk.in/generate_pdf.php?application_id=${applicationId}`;
 
             // Show loading notification
             showNotification('Generating PDF...', 'info');

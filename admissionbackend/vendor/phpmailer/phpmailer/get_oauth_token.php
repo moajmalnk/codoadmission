@@ -106,7 +106,7 @@ if (array_key_exists('provider', $_POST)) {
 
 //If this automatic URL doesn't work, set it yourself manually to the URL of this script
 $redirectUri = (isset($_SERVER['HTTPS']) ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-//$redirectUri = 'http://localhost/PHPMailer/redirect';
+//$redirectUri = 'http://admissionbackend.moajmalnk.in/PHPMailer/redirect';
 
 $params = [
     'clientId' => $clientId,

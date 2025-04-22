@@ -6,9 +6,9 @@ ini_set('display_errors', 1);
 try {
     // Database configuration
     $host = "localhost";
-    $dbname = "admission_system";
-    $username = "root";
-    $password = "";
+    $dbname = "u262074081_admission";
+    $username = "u262074081_admission";
+    $password = "4muogEVkB/";
     
     // Create database connection
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";

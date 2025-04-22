@@ -251,7 +251,7 @@
             const applicationData = JSON.parse(localStorage.getItem('editApplication'));
             formData.append('application_id', applicationData.application_id);
 
-            fetch('http://localhost/codoadmission/admissionbackend/api/update_application.php', {
+            fetch('https://admissionbackend.moajmalnk.in/api/update_application.php', {
                 method: 'POST',
                 body: formData,
                 credentials: 'include'

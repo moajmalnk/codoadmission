@@ -37,10 +37,10 @@ try {
     error_log("Attempting login for username: " . $username);
     
     // Database configuration
-    $host = "localhost";  // Using localhost instead of IP
-    $dbname = "admission_system";
-    $dbusername = "root";
-    $dbpassword = "";
+    $host = "localhost";
+    $dbname = "u262074081_admission";
+    $dbusername = "u262074081_admission";
+    $dbpassword = "4muogEVkB/";
     
     // Create database connection
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
