@@ -1,8 +1,9 @@
 <?php
 // Add CORS headers
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: https://admission.moajmalnk.in');
+header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
 header('Content-Type: application/json');
 
 // Enable error reporting
