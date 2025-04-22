@@ -1,0 +1,32 @@
+# Enable CORS with dynamic origin
+SetEnvIf Origin "^http(s)?://(localhost|127\.0\.0\.1)(:\d+)?(/.*)?$" CORS_ORIGIN=$0
+Header always set Access-Control-Allow-Origin %{CORS_ORIGIN}e env=CORS_ORIGIN
+Header always set Access-Control-Allow-Credentials "true"
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+Header always set Access-Control-Max-Age "3600"
+
+# Handle OPTIONS preflight requests
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ $1 [R=200,L]
+
+# Set default charset
+AddDefaultCharset UTF-8
+
+# Disable directory listing
+Options -Indexes
+
+# Enable error reporting (remove in production)
+php_flag display_errors off
+php_value error_reporting E_ALL
+
+# Set content type for JSON responses
+SetEnvIf Request_URI "\.php$" IS_PHP
+Header set Content-Type "application/json" env=IS_PHP
+
+# Deny access to sensitive files
+<FilesMatch "^(\.env|\.git|composer\.(json|lock)|\.htaccess)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch> 

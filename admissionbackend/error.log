@@ -1,0 +1,171 @@
+[20-Apr-2025 20:31:36 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
+[20-Apr-2025 20:31:36 Europe/Berlin] Login error: Database connection failed
+[20-Apr-2025 20:31:55 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
+[20-Apr-2025 20:31:55 Europe/Berlin] Login error: Database connection failed
+[20-Apr-2025 20:32:15 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
+[20-Apr-2025 20:32:15 Europe/Berlin] Login error: Database connection failed
+[20-Apr-2025 20:33:29 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
+[20-Apr-2025 20:33:29 Europe/Berlin] Login error: Database connection failed
+[20-Apr-2025 20:34:19 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
+[20-Apr-2025 20:34:19 Europe/Berlin] Login error: Database connection failed
+[20-Apr-2025 20:36:53 Europe/Berlin] Received raw data: {"username":"admin","password":"admin123"}
+[20-Apr-2025 20:36:53 Europe/Berlin] Decoded data: Array
+(
+    [username] => admin
+    [password] => admin123
+)
+
+[20-Apr-2025 20:36:53 Europe/Berlin] Attempting login for username: admin
+[20-Apr-2025 20:36:55 Europe/Berlin] Database connection error: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
+[20-Apr-2025 20:36:55 Europe/Berlin] Database error: Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
+[20-Apr-2025 20:40:16 Europe/Berlin] Received raw data: {"username":"admin","password":"admin123"}
+[20-Apr-2025 20:40:16 Europe/Berlin] Decoded data: Array
+(
+    [username] => admin
+    [password] => admin123
+)
+
+[20-Apr-2025 20:40:16 Europe/Berlin] Attempting login for username: admin
+[20-Apr-2025 20:40:16 Europe/Berlin] Database connection error: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
+[20-Apr-2025 20:40:16 Europe/Berlin] Database error: Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
+[20-Apr-2025 20:57:25 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => ss
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-20
+    [gender] => male
+    [phone] => 8086995559
+    [email] => moajmalnk@gmail.com
+    [education] => Plus 2
+    [customEducation] => 
+    [fatherName] => aaaaaaa
+    [fatherOccupation] => aaaaa
+    [motherName] => aaaaaaaaaa
+    [guardianPhone] => 08086995559
+    [address] => Vattaloor
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/002
+)
+
+[20-Apr-2025 20:57:25 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => ss
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-20
+    [gender] => male
+    [phone] => 8086995559
+    [email] => moajmalnk@gmail.com
+    [education] => Plus 2
+    [customEducation] => 
+    [fatherName] => aaaaaaa
+    [fatherOccupation] => aaaaa
+    [motherName] => aaaaaaaaaa
+    [guardianPhone] => 08086995559
+    [address] => Vattaloor
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/002
+)
+
+[20-Apr-2025 20:57:25 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/002' for key 'application_id'
+[20-Apr-2025 21:07:57 Europe/Berlin] Searching for application ID: CODO/0425/002
+[20-Apr-2025 21:08:47 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => ss
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-20
+    [gender] => male
+    [phone] => 8086995559
+    [email] => moajmalnk@gmail.com
+    [education] => Plus 2
+    [customEducation] => 
+    [fatherName] => aaaaaaa
+    [fatherOccupation] => aaaaa
+    [motherName] => aaaaaaaaaa
+    [guardianPhone] => 08086995559
+    [address] => Vattaloor
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/003
+)
+
+[20-Apr-2025 21:08:47 Europe/Berlin] Files data received: Array
+(
+)
+
+[20-Apr-2025 21:08:47 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => ss
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-20
+    [gender] => male
+    [phone] => 8086995559
+    [email] => moajmalnk@gmail.com
+    [education] => Plus 2
+    [customEducation] => 
+    [fatherName] => aaaaaaa
+    [fatherOccupation] => aaaaa
+    [motherName] => aaaaaaaaaa
+    [guardianPhone] => 08086995559
+    [address] => Vattaloor
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/003
+)
+
+[20-Apr-2025 21:08:47 Europe/Berlin] Files data received: Array
+(
+)
+
+[20-Apr-2025 21:08:47 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/003' for key 'application_id'
+[20-Apr-2025 21:08:52 Europe/Berlin] Searching for application ID: CODO/0425/003
+[20-Apr-2025 21:14:28 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => ss
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-20
+    [gender] => male
+    [phone] => 08086995559
+    [email] => moajmalnk@gmail.com
+    [education] => SSLC
+    [customEducation] => 
+    [fatherName] => aaaaaaa
+    [fatherOccupation] => aaaaa
+    [motherName] => aaaaaaaaaa
+    [guardianPhone] => 08086995559
+    [address] => Vattaloor
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/004
+)
+
+[20-Apr-2025 21:14:28 Europe/Berlin] Files data received: Array
+(
+)
+
+[20-Apr-2025 21:14:28 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => ss
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-20
+    [gender] => male
+    [phone] => 08086995559
+    [email] => moajmalnk@gmail.com
+    [education] => SSLC
+    [customEducation] => 
+    [fatherName] => aaaaaaa
+    [fatherOccupation] => aaaaa
+    [motherName] => aaaaaaaaaa
+    [guardianPhone] => 08086995559
+    [address] => Vattaloor
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/004
+)
+
+[20-Apr-2025 21:14:28 Europe/Berlin] Files data received: Array
+(
+)
+
+[20-Apr-2025 21:14:28 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/004' for key 'application_id'
