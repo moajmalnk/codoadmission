@@ -1,14 +1,19 @@
 <?php
-// Prevent any output before headers
+// Prevent any output before headers and turn off error display
+error_reporting(E_ALL);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+
+// Start output buffering
 ob_start();
 
-header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: https://admission.moajmalnk.in');
-header('Access-Control-Allow-Credentials: true');
+// Set headers
+header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+header('Access-Control-Allow-Headers: Content-Type');
 
-// Handle preflight
+// Handle preflight requests
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit();
@@ -30,7 +35,7 @@ function generateApplicationId() {
         // Get the latest counter for this month/year
         $stmt = $conn->prepare("
             SELECT MAX(CAST(SUBSTRING_INDEX(application_id, '/', -1) AS UNSIGNED)) as last_count
-            FROM admissions
+            FROM admissions 
             WHERE application_id LIKE :prefix
         ");
         
@@ -42,57 +47,40 @@ function generateApplicationId() {
         $nextCount = ($result['last_count'] ?? 0) + 1;
         
         // Format the application ID
-        $applicationId = sprintf("CODO/%s/%03d", $monthYear, $nextCount);
-        
-        return $applicationId;
+        return sprintf("CODO/%s/%03d", $monthYear, $nextCount);
         
     } catch(PDOException $e) {
-        error_log("Error generating application ID: " . $e->getMessage());
-        return null;
+        error_log("Database error: " . $e->getMessage());
+        throw new Exception("Database error occurred");
     }
 }
 
+// Clear any existing output
+ob_clean();
+
 try {
-    // Generate the application ID
     $appId = generateApplicationId();
     
-    if ($appId === null) {
-        throw new Exception('Failed to generate application ID');
+    if (empty($appId)) {
+        throw new Exception("Failed to generate application ID");
     }
     
-    // Clear any output buffers
-    while (ob_get_level()) {
-        ob_end_clean();
-    }
-    
-    // Send JSON response
     echo json_encode([
         'success' => true,
         'applicationId' => $appId,
         'timestamp' => date('Y-m-d H:i:s')
-    ], JSON_THROW_ON_ERROR);
+    ]);
     
 } catch (Exception $e) {
-    // Log the error
     error_log("Error in generate_app_id.php: " . $e->getMessage());
-    
-    // Clear any output buffers
-    while (ob_get_level()) {
-        ob_end_clean();
-    }
-    
-    // Send error response
     http_response_code(500);
     echo json_encode([
         'success' => false,
         'error' => 'Failed to generate application ID',
-        'message' => $e->getMessage(),
-        'timestamp' => date('Y-m-d H:i:s')
-    ], JSON_THROW_ON_ERROR);
+        'message' => $e->getMessage()
+    ]);
 }
 
-// Ensure no additional output and flush the response
-if (ob_get_level()) {
-    ob_end_flush();
-}
+// End output buffering and send response
+ob_end_flush();
 exit();

@@ -1,9 +1,7 @@
-# Enable CORS with proper headers
-SetEnvIf Origin "https://admission\.moajmalnk\.in$" CORS_ORIGIN=$0
-Header set Access-Control-Allow-Origin "%{CORS_ORIGIN}e" env=CORS_ORIGIN
-Header set Access-Control-Allow-Credentials "true"
-Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
-Header set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+# Enable CORS
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+Header set Access-Control-Allow-Headers "Content-Type"
 Header set Access-Control-Max-Age "3600"
 
 # Handle OPTIONS preflight requests
@@ -18,12 +16,6 @@ Header set X-XSS-Protection "1; mode=block"
 Header set Referrer-Policy "strict-origin-when-cross-origin"
 Header set Content-Security-Policy "default-src 'self' https://admission.moajmalnk.in; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https:; script-src 'self' 'unsafe-inline' https:;"
 
-# Protect files and directories
-<FilesMatch "^\.">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
-
 # Disable directory browsing
 Options -Indexes
 
@@ -37,6 +29,8 @@ ErrorDocument 403 /error.php
 ErrorDocument 500 /error.php
 
 # PHP settings
+php_flag display_errors off
+php_value error_reporting E_ALL
 php_value upload_max_filesize 10M
 php_value post_max_size 10M
 php_value max_execution_time 300
@@ -49,7 +43,8 @@ php_value max_input_time 300
 </FilesMatch>
 
 # Allow API endpoints
-<FilesMatch "^(api/|process\.php$)">
+<FilesMatch "^(generate_app_id\.php|api/|process\.php)$">
     Order allow,deny
     Allow from all
+    Header set Content-Type "application/json"
 </FilesMatch> 
