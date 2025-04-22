@@ -24,21 +24,29 @@ define('BACKEND_URL', 'https://admissionbackend.moajmalnk.in');
 // Time zone
 date_default_timezone_set('Asia/Kolkata');
 
-try {
-    $pdo = new PDO(
-        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4",
-        DB_USER,
-        DB_PASS,
-        [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            PDO::ATTR_EMULATE_PREPARES => false
-        ]
-    );
-} catch (PDOException $e) {
-    error_log("Connection failed: " . $e->getMessage());
-    http_response_code(500);
-    die(json_encode(['error' => 'Database connection failed']));
+// Database connection function
+function getConnection() {
+    static $pdo = null;
+    
+    if ($pdo === null) {
+        try {
+            $pdo = new PDO(
+                "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4",
+                DB_USER,
+                DB_PASS,
+                [
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                    PDO::ATTR_EMULATE_PREPARES => false
+                ]
+            );
+        } catch (PDOException $e) {
+            error_log("Connection failed: " . $e->getMessage());
+            throw new PDOException("Database connection failed");
+        }
+    }
+    
+    return $pdo;
 }
 
 // Security functions
@@ -72,7 +80,7 @@ function sendError($message, $status = 400) {
 
 // Utility functions
 function generateApplicationId() {
-    global $pdo;
+    $pdo = getConnection();
     
     try {
         $stmt = $pdo->query("SELECT MAX(CAST(SUBSTRING(application_id, 6) AS UNSIGNED)) as last_num FROM applications");
