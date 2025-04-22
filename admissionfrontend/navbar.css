@@ -115,21 +115,42 @@
 
 /* Mobile menu button */
 .navbar-toggler {
-    padding: 0.25rem;
-    border: none;
+    padding: 0.5rem;
+    border: 1.5px solid var(--border-color);
     background: transparent;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler:hover {
+    border-color: var(--primary-color);
+    background: var(--highlight-color);
 }
 
 .navbar-toggler-icon {
-    width: 24px;
-    height: 24px;
-    background: none;
-    position: relative;
-    transition: all 0.3s ease;
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    vertical-align: middle;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+/* Show toggle button only on mobile */
+@media (max-width: 767.98px) {
+    .navbar-toggler {
+        display: block;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-toggler {
+        display: none;
+    }
 }
 
 /* Tablet and desktop styles */
@@ -156,10 +177,6 @@
 
     #userInfo {
         display: flex;
-    }
-
-    .navbar-toggler {
-        display: none;
     }
 }
 
