@@ -30,8 +30,8 @@
     <div id="mainContent" style="display: none;">
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-            <div class="container">
-                <a class="navbar-brand" href="dashboard.html">
+            <div class="container" style="padding: 0px 10px 0px 50px;">
+                <a class="navbar-brand" href="dashboard.php">
                     <img src="https://codoacademy.com/uploads/system/0623b9b92a325936b0a00502d95c22e6.png" 
                          alt="CODO AI Innovations" class="logo">
                 </a>
@@ -42,12 +42,12 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="dashboard.php">
                                 <i class="fas fa-home me-2"></i>Dashboard
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">
+                            <a class="nav-link active" href="index.php">
                                 <i class="fas fa-user-graduate me-2"></i>Admission Form
                             </a>
                         </li>
@@ -89,13 +89,13 @@
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="batchNo" class="form-label">
                                 Batch no.
                             </label>
                             <input type="text" class="form-control" id="batchNo" name="batchNo" required>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="dateOfJoining" class="form-label">
                                 Date of Joining
                                 <i class="fas fa-info-circle text-primary" 
@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="dob" class="form-label">
                                 Date of Birth
                                 <i class="fas fa-info-circle text-primary" 
@@ -120,7 +120,7 @@
                             </label>
                             <input type="date" class="form-control" id="dob" name="dob" required>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label class="form-label">Gender</label>
                             <div class="gender-group">
                                 <div class="form-check">
@@ -136,11 +136,11 @@
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="phone" class="form-label">Phone No.</label>
                             <input type="tel" class="form-control" id="phone" name="phone" required>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
@@ -161,22 +161,22 @@
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="fatherName" class="form-label">Father's Name</label>
                             <input type="text" class="form-control" id="fatherName" name="fatherName">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="fatherOccupation" class="form-label">Father's Occupation</label>
                             <input type="text" class="form-control" id="fatherOccupation" name="fatherOccupation">
                         </div>
                     </div>
 
                     <div class="row mb-3">
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="motherName" class="form-label">Mother's Name</label>
                             <input type="text" class="form-control" id="motherName" name="motherName">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-12">
                             <label for="guardianPhone" class="form-label">Guardian's Phone No.</label>
                             <input type="tel" class="form-control" id="guardianPhone" name="guardianPhone">
                         </div>
@@ -249,6 +249,9 @@
                             </div>
                             <div class="modal-footer justify-content-center">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" onclick="window.location.href='index.php'">
+                                    <i class="fas fa-plus-circle"></i> New Admission
+                                </button>
                                 <button type="button" class="btn btn-primary" onclick="printApplication()">
                                     <i class="fas fa-print"></i> Print Application
                                 </button>
@@ -274,19 +277,14 @@
         document.addEventListener('DOMContentLoaded', function() {
             const authCheck = document.querySelector('.auth-check');
             const mainContent = document.getElementById('mainContent');
-            const loginContainer = document.querySelector('.login-container');
+
+            // Check authentication
             const token = localStorage.getItem('authToken');
             const userData = localStorage.getItem('userData');
 
-            // Hide all content initially
-            mainContent.style.display = 'none';
-            loginContainer.style.display = 'none';
-            authCheck.style.display = 'flex';
-
             if (!token || !userData) {
-                // No auth data - show login
-                authCheck.style.display = 'none';
-                loginContainer.style.display = 'block';
+                // No auth data - redirect to login
+                window.location.replace('login.php');
                 return;
             }
 
@@ -299,7 +297,6 @@
 
                 // Valid auth - show main content
                 authCheck.style.display = 'none';
-                loginContainer.style.display = 'none';
                 mainContent.style.display = 'block';
                 
                 // Set user info in navbar
@@ -309,23 +306,29 @@
                 if (typeof FormHandler !== 'undefined') {
                     new FormHandler();
                 }
+
+                // Set current date
+                const today = new Date();
+                const currentDateElement = document.getElementById('currentDate');
+                if (currentDateElement) {
+                    currentDateElement.textContent = formatDate(today);
+                }
+
             } catch (error) {
                 console.error('Authentication error:', error);
-                // Clear invalid data and show login
+                // Clear invalid data and redirect to login
                 localStorage.removeItem('authToken');
                 localStorage.removeItem('userData');
-                authCheck.style.display = 'none';
-                loginContainer.style.display = 'block';
+                window.location.replace('login.php');
             }
         });
 
         function logout() {
             localStorage.removeItem('authToken');
             localStorage.removeItem('userData');
-            window.location.replace('login.html');
+            window.location.replace('login.php');
         }
 
-        // Format today's date as DD/MM/YYYY
         function formatDate(date) {
             const day = String(date.getDate()).padStart(2, '0');
             const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -333,20 +336,11 @@
             return `${day}/${month}/${year}`;
         }
 
-        // Set current date when page loads
-        document.addEventListener('DOMContentLoaded', function () {
-            const today = new Date();
-            document.getElementById('currentDate').textContent = formatDate(today);
-        });
-
+        // Handle modal close events
         const modalElement = document.getElementById('thankYouModal');
         if (modalElement) {
-            const closeButton = modalElement.querySelector('[data-bs-dismiss="modal"]');
-            const xButton = modalElement.querySelector('.btn-close');
-
-            // Function to handle modal hidden event
             modalElement.addEventListener('hidden.bs.modal', function () {
-                window.location.href = 'dashboard.html';
+                window.location.href = 'dashboard.php';
             });
         }
     </script>

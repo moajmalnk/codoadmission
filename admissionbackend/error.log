@@ -1,171 +1,295 @@
-[20-Apr-2025 20:31:36 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
-[20-Apr-2025 20:31:36 Europe/Berlin] Login error: Database connection failed
-[20-Apr-2025 20:31:55 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
-[20-Apr-2025 20:31:55 Europe/Berlin] Login error: Database connection failed
-[20-Apr-2025 20:32:15 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
-[20-Apr-2025 20:32:15 Europe/Berlin] Login error: Database connection failed
-[20-Apr-2025 20:33:29 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
-[20-Apr-2025 20:33:29 Europe/Berlin] Login error: Database connection failed
-[20-Apr-2025 20:34:19 Europe/Berlin] Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
-[20-Apr-2025 20:34:19 Europe/Berlin] Login error: Database connection failed
-[20-Apr-2025 20:36:53 Europe/Berlin] Received raw data: {"username":"admin","password":"admin123"}
-[20-Apr-2025 20:36:53 Europe/Berlin] Decoded data: Array
+[22-Apr-2025 09:23:47 Europe/Berlin] POST data received: Array
 (
-    [username] => admin
-    [password] => admin123
-)
-
-[20-Apr-2025 20:36:53 Europe/Berlin] Attempting login for username: admin
-[20-Apr-2025 20:36:55 Europe/Berlin] Database connection error: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
-[20-Apr-2025 20:36:55 Europe/Berlin] Database error: Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
-[20-Apr-2025 20:40:16 Europe/Berlin] Received raw data: {"username":"admin","password":"admin123"}
-[20-Apr-2025 20:40:16 Europe/Berlin] Decoded data: Array
-(
-    [username] => admin
-    [password] => admin123
-)
-
-[20-Apr-2025 20:40:16 Europe/Berlin] Attempting login for username: admin
-[20-Apr-2025 20:40:16 Europe/Berlin] Database connection error: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
-[20-Apr-2025 20:40:16 Europe/Berlin] Database error: Database connection failed: SQLSTATE[HY000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)
-[20-Apr-2025 20:57:25 Europe/Berlin] POST data received: Array
-(
-    [applicantName] => ss
+    [applicantName] => Abbas
     [batchNo] => CODO/0425/B001
     [dateOfJoining] => 2025-04-23
-    [dob] => 2010-04-20
+    [dob] => 2010-04-22
     [gender] => male
-    [phone] => 8086995559
-    [email] => moajmalnk@gmail.com
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
     [education] => Plus 2
     [customEducation] => 
-    [fatherName] => aaaaaaa
-    [fatherOccupation] => aaaaa
-    [motherName] => aaaaaaaaaa
-    [guardianPhone] => 08086995559
-    [address] => Vattaloor
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => aaaaaa
     [technicalBackground] => yes
-    [applicationId] => CODO/0425/002
+    [applicationId] => CODO/0425/005
 )
 
-[20-Apr-2025 20:57:25 Europe/Berlin] POST data received: Array
+[22-Apr-2025 09:23:47 Europe/Berlin] POST data received: Array
 (
-    [applicantName] => ss
+    [applicantName] => Abbas
     [batchNo] => CODO/0425/B001
     [dateOfJoining] => 2025-04-23
-    [dob] => 2010-04-20
+    [dob] => 2010-04-22
     [gender] => male
-    [phone] => 8086995559
-    [email] => moajmalnk@gmail.com
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
     [education] => Plus 2
     [customEducation] => 
-    [fatherName] => aaaaaaa
-    [fatherOccupation] => aaaaa
-    [motherName] => aaaaaaaaaa
-    [guardianPhone] => 08086995559
-    [address] => Vattaloor
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => aaaaaa
     [technicalBackground] => yes
-    [applicationId] => CODO/0425/002
+    [applicationId] => CODO/0425/005
 )
 
-[20-Apr-2025 20:57:25 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/002' for key 'application_id'
-[20-Apr-2025 21:07:57 Europe/Berlin] Searching for application ID: CODO/0425/002
-[20-Apr-2025 21:08:47 Europe/Berlin] POST data received: Array
+[22-Apr-2025 09:23:47 Europe/Berlin] Files data received: Array
 (
-    [applicantName] => ss
+)
+
+[22-Apr-2025 09:23:47 Europe/Berlin] Files data received: Array
+(
+)
+
+[22-Apr-2025 09:23:47 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/005' for key 'unique_application_id'
+[22-Apr-2025 09:33:07 Europe/Berlin] Searching for application ID: CODO/0425/004
+[22-Apr-2025 10:12:52 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => Abbas
     [batchNo] => CODO/0425/B001
     [dateOfJoining] => 2025-04-23
-    [dob] => 2010-04-20
+    [dob] => 2010-04-22
     [gender] => male
-    [phone] => 8086995559
-    [email] => moajmalnk@gmail.com
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
     [education] => Plus 2
     [customEducation] => 
-    [fatherName] => aaaaaaa
-    [fatherOccupation] => aaaaa
-    [motherName] => aaaaaaaaaa
-    [guardianPhone] => 08086995559
-    [address] => Vattaloor
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => aaaaaa
     [technicalBackground] => yes
-    [applicationId] => CODO/0425/003
+    [applicationId] => CODO/0425/006
 )
 
-[20-Apr-2025 21:08:47 Europe/Berlin] Files data received: Array
+[22-Apr-2025 10:12:52 Europe/Berlin] POST data received: Array
 (
-)
-
-[20-Apr-2025 21:08:47 Europe/Berlin] POST data received: Array
-(
-    [applicantName] => ss
+    [applicantName] => Abbas
     [batchNo] => CODO/0425/B001
     [dateOfJoining] => 2025-04-23
-    [dob] => 2010-04-20
+    [dob] => 2010-04-22
     [gender] => male
-    [phone] => 8086995559
-    [email] => moajmalnk@gmail.com
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
     [education] => Plus 2
     [customEducation] => 
-    [fatherName] => aaaaaaa
-    [fatherOccupation] => aaaaa
-    [motherName] => aaaaaaaaaa
-    [guardianPhone] => 08086995559
-    [address] => Vattaloor
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => aaaaaa
     [technicalBackground] => yes
-    [applicationId] => CODO/0425/003
+    [applicationId] => CODO/0425/006
 )
 
-[20-Apr-2025 21:08:47 Europe/Berlin] Files data received: Array
+[22-Apr-2025 10:12:52 Europe/Berlin] Files data received: Array
 (
 )
 
-[20-Apr-2025 21:08:47 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/003' for key 'application_id'
-[20-Apr-2025 21:08:52 Europe/Berlin] Searching for application ID: CODO/0425/003
-[20-Apr-2025 21:14:28 Europe/Berlin] POST data received: Array
+[22-Apr-2025 10:12:52 Europe/Berlin] Files data received: Array
 (
-    [applicantName] => ss
+)
+
+[22-Apr-2025 10:12:52 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/006' for key 'unique_application_id'
+[22-Apr-2025 11:04:16 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => Abbas
     [batchNo] => CODO/0425/B001
     [dateOfJoining] => 2025-04-23
-    [dob] => 2010-04-20
+    [dob] => 2010-04-22
     [gender] => male
-    [phone] => 08086995559
-    [email] => moajmalnk@gmail.com
-    [education] => SSLC
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
+    [education] => Plus 2
     [customEducation] => 
-    [fatherName] => aaaaaaa
-    [fatherOccupation] => aaaaa
-    [motherName] => aaaaaaaaaa
-    [guardianPhone] => 08086995559
-    [address] => Vattaloor
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => sssssssssss
     [technicalBackground] => yes
-    [applicationId] => CODO/0425/004
+    [applicationId] => CODO/0425/007
 )
 
-[20-Apr-2025 21:14:28 Europe/Berlin] Files data received: Array
+[22-Apr-2025 11:04:16 Europe/Berlin] Files data received: Array
 (
 )
 
-[20-Apr-2025 21:14:28 Europe/Berlin] POST data received: Array
+[22-Apr-2025 11:04:16 Europe/Berlin] POST data received: Array
 (
-    [applicantName] => ss
+    [applicantName] => Abbas
     [batchNo] => CODO/0425/B001
     [dateOfJoining] => 2025-04-23
-    [dob] => 2010-04-20
+    [dob] => 2010-04-22
     [gender] => male
-    [phone] => 08086995559
-    [email] => moajmalnk@gmail.com
-    [education] => SSLC
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
+    [education] => Plus 2
     [customEducation] => 
-    [fatherName] => aaaaaaa
-    [fatherOccupation] => aaaaa
-    [motherName] => aaaaaaaaaa
-    [guardianPhone] => 08086995559
-    [address] => Vattaloor
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => sssssssssss
     [technicalBackground] => yes
-    [applicationId] => CODO/0425/004
+    [applicationId] => CODO/0425/007
 )
 
-[20-Apr-2025 21:14:28 Europe/Berlin] Files data received: Array
+[22-Apr-2025 11:04:16 Europe/Berlin] Files data received: Array
 (
 )
 
-[20-Apr-2025 21:14:28 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/004' for key 'application_id'
+[22-Apr-2025 11:04:16 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/007' for key 'unique_application_id'
+[22-Apr-2025 11:07:29 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => Abbas
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-22
+    [gender] => male
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
+    [education] => Plus 2
+    [customEducation] => 
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => aaaaaaaaaaaaaaa
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/008
+)
+
+[22-Apr-2025 11:07:29 Europe/Berlin] Files data received: Array
+(
+)
+
+[22-Apr-2025 11:07:29 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => Abbas
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-22
+    [gender] => male
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
+    [education] => Plus 2
+    [customEducation] => 
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => aaaaaaaaaaaaaaa
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/008
+)
+
+[22-Apr-2025 11:07:29 Europe/Berlin] Files data received: Array
+(
+)
+
+[22-Apr-2025 11:07:29 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/008' for key 'unique_application_id'
+[22-Apr-2025 11:09:25 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => Abbas
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-22
+    [gender] => male
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
+    [education] => Plus 2
+    [customEducation] => 
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => ssssssssss
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/009
+)
+
+[22-Apr-2025 11:09:25 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => Abbas
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-22
+    [gender] => male
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
+    [education] => Plus 2
+    [customEducation] => 
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => ssssssssss
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/009
+)
+
+[22-Apr-2025 11:09:25 Europe/Berlin] Files data received: Array
+(
+)
+
+[22-Apr-2025 11:09:25 Europe/Berlin] Files data received: Array
+(
+)
+
+[22-Apr-2025 11:09:25 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/009' for key 'unique_application_id'
+[22-Apr-2025 11:11:10 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => Abbas
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-22
+    [gender] => male
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
+    [education] => Plus 2
+    [customEducation] => 
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => aaaaaaaaaaa
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/010
+)
+
+[22-Apr-2025 11:11:10 Europe/Berlin] POST data received: Array
+(
+    [applicantName] => Abbas
+    [batchNo] => CODO/0425/B001
+    [dateOfJoining] => 2025-04-23
+    [dob] => 2010-04-22
+    [gender] => male
+    [phone] => 8848676627
+    [email] => tv.pangonline@gmail.com
+    [education] => Plus 2
+    [customEducation] => 
+    [fatherName] => Abbas V2
+    [fatherOccupation] => Intro
+    [motherName] => Abbas V3
+    [guardianPhone] => 8848676627
+    [address] => aaaaaaaaaaa
+    [technicalBackground] => yes
+    [applicationId] => CODO/0425/010
+)
+
+[22-Apr-2025 11:11:10 Europe/Berlin] Files data received: Array
+(
+)
+
+[22-Apr-2025 11:11:10 Europe/Berlin] Files data received: Array
+(
+)
+
+[22-Apr-2025 11:11:10 Europe/Berlin] Database error in process.php: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'CODO/0425/010' for key 'unique_application_id'

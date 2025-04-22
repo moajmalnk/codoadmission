@@ -34,6 +34,8 @@ try {
     $username = $data['username'];
     $password = $data['password'];
     
+    error_log("Attempting login for username: " . $username);
+    
     // Database configuration
     $host = "localhost";  // Using localhost instead of IP
     $dbname = "admission_system";
@@ -51,16 +53,21 @@ try {
     $pdo = new PDO($dsn, $dbusername, $dbpassword, $options);
     
     // Get user by username
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ? AND is_active = 1");
+    $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
     $stmt->execute([$username]);
     $user = $stmt->fetch();
     
     if (!$user) {
+        error_log("User not found: " . $username);
         throw new Exception('Invalid username or password');
     }
     
+    error_log("Found user: " . $username . ", attempting password verification");
+    
     // Verify password
-    if (password_verify($password, $user['password']) || $password === 'password') {
+    if (password_verify($password, $user['password'])) {
+        error_log("Password verification successful for user: " . $username);
+        
         // Update last login time
         $updateStmt = $pdo->prepare("UPDATE users SET last_login = NOW() WHERE id = ?");
         $updateStmt->execute([$user['id']]);
@@ -82,6 +89,8 @@ try {
         http_response_code(200);
         echo json_encode($response);
     } else {
+        error_log("Password verification failed for user: " . $username);
+        error_log("Stored hash: " . $user['password']);
         throw new Exception('Invalid username or password');
     }
     

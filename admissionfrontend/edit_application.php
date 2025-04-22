@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CODO AI Innovations - Edit Application</title>
+    <link rel="icon" href="https://codoacademy.com/uploads/system/e7c3fb5390c74909db1bb3559b24007a.png"
+        type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://codoacademy.com/uploads/system/e7c3fb5390c74909db1bb3559b24007a.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -61,7 +65,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="dashboard.html">
+            <a class="navbar-brand" href="dashboard.php">
                 <img src="https://codoacademy.com/uploads/system/0623b9b92a325936b0a00502d95c22e6.png"
                     alt="CODO AI Innovations" class="logo">
             </a>
@@ -72,12 +76,12 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">
+                        <a class="nav-link" href="dashboard.php">
                             <i class="fas fa-home me-2"></i>Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="index.php">
                             <i class="fas fa-user-graduate me-2"></i>Admission Form
                         </a>
                     </li>
@@ -205,7 +209,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             const token = localStorage.getItem('authToken');
             if (!token) {
-                window.location.href = 'login.html';
+                window.location.href = 'login.php';
                 return;
             }
 
@@ -214,14 +218,14 @@
                 document.querySelector('#userInfo .username').textContent = userData.username;
                 loadApplicationData();
             } catch (error) {
-                window.location.href = 'login.html';
+                window.location.href = 'login.php';
             }
         });
 
         function loadApplicationData() {
             const applicationData = JSON.parse(localStorage.getItem('editApplication'));
             if (!applicationData) {
-                window.location.href = 'dashboard.html';
+                window.location.href = 'dashboard.php';
                 return;
             }
 
@@ -257,7 +261,7 @@
                 if (data.success) {
                     alert('Application updated successfully!');
                     localStorage.removeItem('editApplication');
-                    window.location.href = 'dashboard.html';
+                    window.location.href = 'dashboard.php';
                 } else {
                     throw new Error(data.message || 'Failed to update application');
                 }
@@ -270,7 +274,7 @@
 
         function logout() {
             localStorage.removeItem('authToken');
-            window.location.href = 'login.html';
+            window.location.href = 'login.php';
         }
     </script>
 </body>

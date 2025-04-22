@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const user = JSON.parse(userData);
             if (user && user.username && user.role) {
                 // Only redirect if we're actually on the login page
-                if (window.location.pathname.includes('login.html')) {
-                    window.location.replace('dashboard.html');
+                if (window.location.pathname.includes('login.php')) {
+                    window.location.replace('dashboard.php');
                 }
                 return;
             }
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Redirect to dashboard after a brief delay
                 setTimeout(() => {
-                    window.location.replace('dashboard.html');
+                    window.location.replace('dashboard.php');
                 }, 500);
             } else {
                 // Show error message

@@ -1,14 +1,79 @@
-[20-Apr-2025 20:42:12 Europe/Berlin] Received raw data: {"username":"admin","password":"admin123"}
-[20-Apr-2025 20:42:15 Europe/Berlin] Login error: Invalid username or password
-[20-Apr-2025 20:44:18 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
-[20-Apr-2025 20:44:43 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
-[20-Apr-2025 20:46:56 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
-[20-Apr-2025 20:47:56 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
-[20-Apr-2025 20:48:49 Europe/Berlin] Received raw data: {"username":"admin","password":"admin123"}
-[20-Apr-2025 20:48:52 Europe/Berlin] Login error: Invalid username or password
-[20-Apr-2025 20:49:00 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
-[20-Apr-2025 20:52:07 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
-[20-Apr-2025 20:52:32 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
-[20-Apr-2025 20:55:04 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
-[20-Apr-2025 20:55:26 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
-[20-Apr-2025 21:40:27 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 07:31:58 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 07:45:01 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 07:50:20 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123\\"}
+[22-Apr-2025 07:50:22 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 07:50:30 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 07:51:06 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 07:53:00 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 08:09:16 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 08:09:48 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 08:12:50 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 08:34:01 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 08:37:12 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 08:56:34 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 09:39:57 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"Codoai@8848"}
+[22-Apr-2025 09:39:59 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:40:17 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"Codoai@8848"}
+[22-Apr-2025 09:40:19 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:42:05 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"Codoai@8848"}
+[22-Apr-2025 09:42:07 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:42:08 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"Codoai@8848"}
+[22-Apr-2025 09:42:10 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:42:21 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"Codoai@8848"}
+[22-Apr-2025 09:42:23 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:44:32 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"admin123"}
+[22-Apr-2025 09:44:34 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:45:27 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"Codoai@8848"}
+[22-Apr-2025 09:45:29 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:46:09 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"Codoai@8848"}
+[22-Apr-2025 09:46:11 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:46:22 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"Codoai@8848"}
+[22-Apr-2025 09:46:24 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:49:28 Europe/Berlin] Received raw data: {"username":"admin2","password":"admin123"}
+[22-Apr-2025 09:49:30 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:50:10 Europe/Berlin] Received raw data: {"username":"ajmal","password":"Codoai@8848"}
+[22-Apr-2025 09:50:12 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:51:03 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"Codoai@8848"}
+[22-Apr-2025 09:51:05 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:51:20 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"admin123"}
+[22-Apr-2025 09:51:23 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:55:52 Europe/Berlin] Received raw data: {"username":"ajmal","password":"Codoai@8848"}
+[22-Apr-2025 09:55:54 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:57:51 Europe/Berlin] Received raw data: {"username":"ajmal","password":"Codoai@8848"}
+[22-Apr-2025 09:57:54 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 09:59:52 Europe/Berlin] Received raw data: {"username":"ajmal","password":"Codoai@8848"}
+[22-Apr-2025 09:59:52 Europe/Berlin] Attempting login for username: ajmal
+[22-Apr-2025 09:59:54 Europe/Berlin] Found user: ajmal, attempting password verification
+[22-Apr-2025 09:59:54 Europe/Berlin] Password verification failed for user: ajmal
+[22-Apr-2025 09:59:54 Europe/Berlin] Stored hash: $2y$10$QkWgM0tYtwXzU6O30WdY2um4sO3vEQVuMN7L7oqFjx96ROn7EApMa
+[22-Apr-2025 09:59:54 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 10:02:16 Europe/Berlin] Received raw data: {"username":"ajmal","password":"admin123"}
+[22-Apr-2025 10:02:16 Europe/Berlin] Attempting login for username: ajmal
+[22-Apr-2025 10:02:18 Europe/Berlin] Found user: ajmal, attempting password verification
+[22-Apr-2025 10:02:18 Europe/Berlin] Password verification successful for user: ajmal
+[22-Apr-2025 10:03:46 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"Codoai@8848"}
+[22-Apr-2025 10:03:46 Europe/Berlin] Attempting login for username: moajmalnk
+[22-Apr-2025 10:03:48 Europe/Berlin] Found user: moajmalnk, attempting password verification
+[22-Apr-2025 10:03:48 Europe/Berlin] Password verification failed for user: moajmalnk
+[22-Apr-2025 10:03:48 Europe/Berlin] Stored hash: $2y$10$QkWgM0tYtwXzU6O30WdY2um4sO3vEQVuMN7L7oqFjx96ROn7EApMa
+[22-Apr-2025 10:03:48 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 10:06:36 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"admin123"}
+[22-Apr-2025 10:06:36 Europe/Berlin] Attempting login for username: moajmalnk
+[22-Apr-2025 10:06:38 Europe/Berlin] Found user: moajmalnk, attempting password verification
+[22-Apr-2025 10:06:38 Europe/Berlin] Password verification successful for user: moajmalnk
+[22-Apr-2025 10:07:16 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"admin123"}
+[22-Apr-2025 10:07:16 Europe/Berlin] Attempting login for username: moajmalnk
+[22-Apr-2025 10:07:18 Europe/Berlin] Found user: moajmalnk, attempting password verification
+[22-Apr-2025 10:07:18 Europe/Berlin] Password verification failed for user: moajmalnk
+[22-Apr-2025 10:07:18 Europe/Berlin] Stored hash: $2y$10$QkWgM0tYtwXzU6O30WdY2um4sO3vEQVuMN7L7oqFjx96ROn7EApMa
+[22-Apr-2025 10:07:18 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 10:07:24 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"Codoai@8848"}
+[22-Apr-2025 10:07:24 Europe/Berlin] Attempting login for username: moajmalnk
+[22-Apr-2025 10:07:26 Europe/Berlin] Found user: moajmalnk, attempting password verification
+[22-Apr-2025 10:07:26 Europe/Berlin] Password verification failed for user: moajmalnk
+[22-Apr-2025 10:07:26 Europe/Berlin] Stored hash: $2y$10$QkWgM0tYtwXzU6O30WdY2um4sO3vEQVuMN7L7oqFjx96ROn7EApMa
+[22-Apr-2025 10:07:26 Europe/Berlin] Login error: Invalid username or password
+[22-Apr-2025 10:07:54 Europe/Berlin] Received raw data: {"username":"moajmalnk","password":"admin123"}
+[22-Apr-2025 10:07:54 Europe/Berlin] Attempting login for username: moajmalnk
+[22-Apr-2025 10:07:56 Europe/Berlin] Found user: moajmalnk, attempting password verification
+[22-Apr-2025 10:07:56 Europe/Berlin] Password verification successful for user: moajmalnk

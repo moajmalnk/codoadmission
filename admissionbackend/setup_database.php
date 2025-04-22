@@ -16,6 +16,7 @@ try {
     // Create admissions table with correct field types
     $sql = "CREATE TABLE IF NOT EXISTS admissions (
         id INT(11) AUTO_INCREMENT PRIMARY KEY,
+        application_id VARCHAR(20) NOT NULL,
         applicant_name VARCHAR(100) NOT NULL,
         batch_no VARCHAR(20) DEFAULT NULL,
         date_of_joining DATE DEFAULT NULL,
@@ -31,7 +32,7 @@ try {
         address TEXT NOT NULL,
         technical_background ENUM('yes', 'no') DEFAULT NULL,
         created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-        application_id VARCHAR(20) NOT NULL UNIQUE
+        UNIQUE KEY unique_application_id (application_id)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci";
     
     $pdo->exec($sql);

@@ -144,7 +144,7 @@ async function generateApplicationId() {
         
         // Format number with leading zeros
         const formattedNumber = String(nextNumber).padStart(3, '0');
-        const generatedId = `CODO/${month}${year}/${formattedNumber}`;
+        let generatedId = `CODO/${month}${year}/${formattedNumber}`;
 
         // Verify if ID exists
         const verifyResponse = await fetch(`http://localhost/codoadmission/admissionbackend/verify_id.php?id=${generatedId}`, {
@@ -160,7 +160,25 @@ async function generateApplicationId() {
         if (verifyResult.exists) {
             // If ID exists, add timestamp to make it unique
             const timestamp = Date.now().toString().slice(-3);
-            return `CODO/${month}${year}/${timestamp}`;
+            generatedId = `CODO/${month}${year}/${timestamp}`;
+            
+            // Verify again to be absolutely sure
+            const secondVerifyResponse = await fetch(`http://localhost/codoadmission/admissionbackend/verify_id.php?id=${generatedId}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('authToken')}` || ''
+                },
+                mode: 'cors'
+            });
+            
+            const secondVerifyResult = await secondVerifyResponse.json();
+            if (secondVerifyResult.exists) {
+                // In the extremely unlikely case that even the timestamp-based ID exists,
+                // add a random number
+                const random = Math.floor(Math.random() * 900) + 100; // 3-digit random number
+                generatedId = `CODO/${month}${year}/${random}`;
+            }
         }
 
         return generatedId;
@@ -168,6 +186,8 @@ async function generateApplicationId() {
         console.error('Error generating application ID:', error);
         // Fallback to a timestamp-based ID if everything fails
         const timestamp = Date.now().toString().slice(-3);
+        const month = String(new Date().getMonth() + 1).padStart(2, '0');
+        const year = String(new Date().getFullYear()).slice(-2);
         return `CODO/${month}${year}/${timestamp}`;
     }
 }
@@ -283,6 +303,9 @@ class FormHandler {
     }
 
     async handleSubmission() {
+        const submitButton = document.getElementById('submitApplication');
+        const originalButtonText = submitButton.innerHTML;
+        
         try {
             const dobInput = document.getElementById('dob');
             if (!validateDateOfBirth(dobInput)) {
@@ -301,51 +324,63 @@ class FormHandler {
             const appId = document.getElementById('applicationId').textContent;
             formData.append('applicationId', appId);
             
-            // Debug: Log form data
-            console.log('Submitting form data:');
-            for (let [key, value] of formData.entries()) {
-                console.log(`${key}: ${value}`);
-            }
-            
-            document.getElementById('submitApplication').disabled = true;
+            // Show loading state
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
             
             const response = await fetch('http://localhost/codoadmission/admissionbackend/process.php', {
                 method: 'POST',
                 body: formData,
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('authToken')}` || ''
-                },
-                mode: 'cors'
+                }
             });
 
             const result = await response.json();
-            console.log('Server response:', result);
+            
+            if (!response.ok) {
+                throw new Error(result.message || `Server error (${response.status})`);
+            }
             
             if (result.success) {
+                // Show success modal
                 const modal = new bootstrap.Modal(document.getElementById('thankYouModal'));
                 document.getElementById('submittedAppId').textContent = appId;
                 modal.show();
                 this.form.reset();
             } else {
-                throw new Error(result.message || 'Submission failed');
+                throw new Error(result.message || 'Form submission failed');
             }
         } catch (error) {
-            console.error('Submission error:', error);
-            // Show detailed error message
-            const errorMessage = error.message || 'Unknown error occurred';
+            // console.error('Submission error:', error);
+            
+            // Create error message
             const errorDiv = document.createElement('div');
-            errorDiv.className = 'alert alert-danger mt-3';
+            errorDiv.className = 'alert alert-danger alert-dismissible fade show mt-3';
             errorDiv.innerHTML = `
-                <strong>Error submitting form:</strong><br>
-                ${errorMessage}<br>
-                Please try again or contact support if the problem persists.
+                <strong>Submission Error:</strong> 
+                ${error.message.includes('Database error') ? 
+                    'There was an issue saving your application. Please try again.' : 
+                    'An error occurred while submitting your form. Please try again later.'}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             `;
+            
+            // Remove existing error messages
+            this.form.querySelectorAll('.alert-danger').forEach(el => el.remove());
+            
+            // Add new error message
             this.form.insertBefore(errorDiv, this.form.firstChild);
             
-            // Auto-remove error message after 5 seconds
-            setTimeout(() => errorDiv.remove(), 5000);
+            // Auto-remove after 8 seconds
+            setTimeout(() => {
+                if (errorDiv.parentNode) {
+                    errorDiv.remove();
+                }
+            }, 8000);
         } finally {
-            document.getElementById('submitApplication').disabled = false;
+            // Reset button state
+            submitButton.disabled = false;
+            submitButton.innerHTML = originalButtonText;
         }
     }
 
@@ -353,14 +388,20 @@ class FormHandler {
         const printContent = document.createElement('div');
         printContent.classList.add('print-section');
         
+        // Get application ID from either the submission modal or the preview modal
+        const submittedAppId = document.getElementById('submittedAppId');
+        const previewAppId = document.querySelector('.preview-body [data-field="Application ID"]');
+        const applicationId = submittedAppId ? submittedAppId.textContent : 
+                            previewAppId ? previewAppId.textContent : '';
+        
         printContent.innerHTML = `
             <div class="print-header">
                 <img src="${document.querySelector('.logo').src}" alt="CODO AI Innovations" style="max-height: 60px;">
                 <h2>Web Design & Development Admission Form</h2>
             </div>
             <div class="print-info">
-                <p>Application ID: ${document.getElementById('applicationId').textContent}</p>
-                <p>Date: ${document.getElementById('currentDate').textContent}</p>
+                <p>Application ID: ${applicationId}</p>
+                <p>Date: ${new Date().toLocaleDateString()}</p>
             </div>
             <div class="print-content">
                 ${this.getFormDataForPrint()}
@@ -391,9 +432,22 @@ class FormHandler {
 }
 
 function downloadApplication(applicationId) {
-    if (applicationId) {
-        window.location.href = `http://localhost/codoadmission/admissionbackend/generate_pdf.php?application_id=${applicationId}`;
+    if (!applicationId) {
+        console.error('Application ID is required');
+        return;
     }
+    
+    const pdfUrl = `http://localhost/codoadmission/admissionbackend/generate_pdf.php?application_id=${applicationId}`;
+    
+    // Create a temporary link element
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.target = '_blank';
+    
+    // Append to body, click and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 // Initialize when document is ready
@@ -500,9 +554,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         if (printButton) {
             printButton.onclick = null;
             printButton.addEventListener('click', function() {
-                const appId = document.getElementById('submittedAppId').textContent;
-                if (appId) {
-                    downloadApplication(appId);
+                const applicationId = this.dataset.applicationId || 
+                                    document.getElementById('submittedAppId')?.textContent;
+                if (applicationId) {
+                    downloadApplication(applicationId);
+                } else {
+                    console.error('Application ID not found');
                 }
             });
         }
@@ -543,3 +600,14 @@ document.addEventListener('DOMContentLoaded', async function() {
         showError('Error initializing form. Please refresh the page.');
     }
 });
+
+async function verifyApplicationId(id) {
+    try {
+        const response = await fetch(`http://localhost/codoadmission/admissionbackend/verify_id.php?id=${id}`);
+        const data = await response.json();
+        return data.exists;
+    } catch (error) {
+        console.error('Error verifying application ID:', error);
+        return false;
+    }
+}

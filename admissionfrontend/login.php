@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CODO AI Innovations - Login</title>
+    <link rel="icon" href="https://codoacademy.com/uploads/system/e7c3fb5390c74909db1bb3559b24007a.png"
+        type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://codoacademy.com/uploads/system/e7c3fb5390c74909db1bb3559b24007a.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -59,7 +63,7 @@
 
         .logo {
             max-width: 150px;
-            margin-bottom: 2rem;
+            margin-bottom: 0rem;
         }
 
         .login-title {
@@ -141,7 +145,7 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light sticky-top">
-        <div class="container">
+        <div class="container" style="padding: 0px 10px 0px 0px !important;">
             <a class="navbar-brand" href="#">
                 <img src="https://codoacademy.com/uploads/system/0623b9b92a325936b0a00502d95c22e6.png" 
                      alt="CODO AI Innovations" class="logo">
