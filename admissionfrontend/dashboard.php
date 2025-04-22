@@ -472,28 +472,37 @@
             `;
 
             fetch('https://admissionbackend.moajmalnk.in/api/get_applications.php', {
+                method: 'GET',
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-                }
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('authToken') || ''}`
+                },
+                credentials: 'include'
             })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Failed to fetch applications');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    applications = data;
-                    displayApplications(applications);
-                })
-                .catch(error => {
-                    // console.error('Error:', error);
-                    gridElement.innerHTML = `
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(response => {
+                if (!response.success) {
+                    throw new Error(response.message || 'Failed to fetch applications');
+                }
+                applications = response.data;
+                displayApplications(applications);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                gridElement.innerHTML = `
                     <div class="alert alert-danger" role="alert">
+                        <i class="fas fa-exclamation-circle me-2"></i>
                         Failed to load applications. Please try again later.
+                        <br>
+                        <small class="text-muted">${error.message}</small>
                     </div>
                 `;
-                });
+            });
         }
 
         function displayApplications(apps) {
